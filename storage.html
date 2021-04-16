@@ -1,27 +1,61 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Lab 5 storage
-            Hannah and Montana 
-        </title>
-    </head>
-    <body>
-        <p id="par"></p>
-        <script>
-                var json = '[{"name":"Hannah", "age":88, "city":"New York"},{"name":"Montana", "age":44, "city":"Vancouver"}]'
-                //{"name":"Mary", "age":11, "city":"Surrey"},{"name":"Bob", "age":22, "city":"LA"},{"name":"Steve", "age":11, "city":"Jaden"},{"name":"Jason", "age":72, "city":"Paris"},{"name":"Henry", "age":55, "city:"Burnaby"},{"name":"Aimee", "age":5, "city:"Maple Ridge"},{"name":"Carson", "age":99, "city:"Langley"},{"name":"Mak", "age":77, "city:"Richmond"}]'
-                
-                var people = JSON.parse(json)
+  <head>
+    <title>Lab 05 - Montana and Hannah
+    </title>
+    <script>
 
-                var moreJSON = JSON.stringify(people)
+      window.onload = function(){
 
-                window.onload=function()
-                {
-                    let divFirst = document.createElement("div")
-                    document.body.appendChild(divFirst)
-                    divFirst.id = "first"
-                }
-                
-        </script>
-    </body>
+        var json = '[{"name":"Hannah", "age":88, "city":"Maple Ridge"},{ "name":"Montana", "age":44, "city":"North Vancouver"},{"name":"Mary", "age":11, "city":"Surrey"},{"name":"Bob", "age":22, "city":"LA"},{"name":"Steve", "age":11, "city":"Jaden"},{"name":"Jason", "age":72, "city":"Paris"},{"name":"Henry", "age":55, "city":"Burnaby"},{"name":"Carson", "age":24, "city":"Langley"},{"name":"Aimee", "age":5, "city":"Maple Ridge"},{"name":"Mak", "age":77, "city":"Richmond"}]';
+        
+        var person = JSON.parse(json);
+      
+        for (var i = 0; i < person.length; i++)
+        {
+          var name= person[i].name 
+
+          var age = person[i].age
+          
+          var city = person[i].city
+
+          onlyDiv = document.createElement('div');
+          heading = document.createElement('h1');
+          para = document.createElement('p');
+          para.innerHTML = 'age ' + age + ', from ' + city ;
+          heading.innerHTML = name.toUpperCase();
+          onlyDiv.appendChild(heading);   
+          onlyDiv.appendChild(para);   
+
+          document.body.appendChild(onlyDiv)
+
+          if (age >= 0 && age <= 20)
+          {
+            onlyDiv.style.background = 'yellow'
+            
+          } 
+          
+          else if (age >= 21 && age <= 40)
+          {
+            onlyDiv.style.background = 'pink'
+
+          } 
+
+          else if (age >= 41 && age <= 60)
+          {
+            onlyDiv.style.background = 'cyan'
+
+          }
+
+          else if (age >= 61 && age <= 100)
+          {
+            onlyDiv.style.background = 'silver'
+
+          }
+        } 
+      }    
+    </script>
+  </head>
+  <body>
+  </body>
 </html>
